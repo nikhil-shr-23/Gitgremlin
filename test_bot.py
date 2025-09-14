@@ -93,10 +93,22 @@ def test_github_connection():
         try:
             repo = github.get_repo(f"{Config.REPO_OWNER}/{Config.GITHUB_REPO}")
             print(f"✅ Repository access confirmed: {repo.full_name}")
+            
+            # Check if repository is empty
+            try:
+                commits = list(repo.get_commits())
+                if not commits:
+                    print("📝 Repository is empty (no commits yet) - this is normal for new repos")
+                else:
+                    print(f"📊 Repository has {len(commits)} commits")
+            except Exception:
+                print("📝 Repository appears to be empty - this is normal for new repos")
+            
             return True
         except Exception as e:
             print(f"❌ Repository access failed: {e}")
             print("💡 Check repository name and permissions")
+            print("💡 Make sure the repository exists and your token has access")
             return False
             
     except Exception as e:

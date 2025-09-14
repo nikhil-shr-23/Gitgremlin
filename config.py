@@ -17,6 +17,14 @@ class Config:
     GITHUB_REPO = os.getenv('GITHUB_REPO')
     REPO_OWNER = os.getenv('REPO_OWNER')
     
+    # Default values for your repository
+    if not GITHUB_USERNAME:
+        GITHUB_USERNAME = 'nikhil-shr-23'
+    if not REPO_OWNER:
+        REPO_OWNER = 'nikhil-shr-23'
+    if not GITHUB_REPO:
+        GITHUB_REPO = 'Gitgremlin'
+    
     # Commit settings
     COMMIT_TIMES = ['09:00', '15:30', '21:45']  # Times to create commits
     CONTRIBUTIONS_DIR = 'contributions'  # Directory for contribution files
