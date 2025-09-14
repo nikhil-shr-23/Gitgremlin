@@ -5,19 +5,16 @@ Configuration settings for GitHub Commit Bot
 import os
 from dotenv import load_dotenv
 
-# Load environment variables
 load_dotenv()
 
 class Config:
     """Configuration class for the bot"""
     
-    # GitHub settings
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
     GITHUB_USERNAME = os.getenv('GITHUB_USERNAME')
     GITHUB_REPO = os.getenv('GITHUB_REPO')
     REPO_OWNER = os.getenv('REPO_OWNER')
     
-    # Default values for your repository
     if not GITHUB_USERNAME:
         GITHUB_USERNAME = 'nikhil-shr-23'
     if not REPO_OWNER:
@@ -25,11 +22,10 @@ class Config:
     if not GITHUB_REPO:
         GITHUB_REPO = 'Gitgremlin'
     
-    # Commit settings
-    COMMIT_TIMES = ['09:00', '15:30', '21:45']  # Times to create commits
-    CONTRIBUTIONS_DIR = 'contributions'  # Directory for contribution files
+    COMMIT_TIMES = ['09:00', '14:17','15:30', '21:45']
+    CONTRIBUTIONS_DIR = 'contributions'  
     
-    # Commit message templates
+
     COMMIT_MESSAGES = [
         "Update daily progress",
         "Add new feature implementation", 
